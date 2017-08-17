@@ -4,7 +4,7 @@
 	// Your starting point. Enjoy the ride!
 	angular
 		.module('todoApp', [])
-		.controller('TodoController', ['$scope', function ($scope) {
+		.controller('TodoController',['$scope',"$location" , function ($scope,$location) {
             var vm=$scope;
 			// 1.展示数据：
 			// name 表示任务名称
@@ -107,6 +107,24 @@
 				}
 				return count;
 			};
+
+			//8. 根据URL变化显示相应任务
+			vm.state=undefined;
+			$scope.location=$location;
+			$scope.$watch("location.url()",function(curVal,oldVal){
+				/*console.log(curVal);*/
+				switch (curVal){
+					case "/":
+						vm.state=undefined;
+						break;
+					case "/active":
+						vm.state=false;
+						break;
+					case "/completed":
+						vm.state=true;
+						break;
+				}
+			});
 
 		}]);
 
