@@ -16,11 +16,19 @@
 				{ id: 3, name: '烫头', isCompleted: false },
 			];
 
+			//添加任务
 			vm.todoList=todoList;
 			vm.todoName="";
 			vm.add=function(){
-				
+				if(vm.todoName.trim()===""){
+					return;
+				}
+				var id;
+				id=todoList.length===0?1:todoList.length+1;
+				todoList.push({id:id,name:vm.todoName,isCompleted:false});
+				vm.todoName="";
 			}
+
 
 
 		}]);
