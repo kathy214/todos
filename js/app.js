@@ -63,12 +63,40 @@
 					//有一个没完成，就不选中
 					if(todoList[i].isCompleted==false){
 						vm.checkAll=false;
+						return;
 					}else{
 						vm.checkAll=true;
 					}
 
 				}
 			};
+
+			//6.清除已完成任务
+			//6.1有已完成任务时，显示清除任务文字，没有不显示
+            vm.isShow=function(){
+				for (var i = 0; i < todoList.length; i++) {
+					if(todoList[i].isCompleted==true){
+						return true;
+						break;
+					}
+				}
+				return false;
+			}
+
+			//6.2清除任务文字（新建临时数组，存放未完成数据）
+			vm.clearComplated=function(){
+				var tempList=[];
+				for (var i = 0; i < todoList.length; i++) {
+					if(!todoList[i].isCompleted){
+						//没被选中的存放到新数组中
+						tempList.push(todoList[i]);
+					}
+				}
+				//清空数组
+				todoList.length=0;
+				//重新赋值
+				[].push.apply(todoList,tempList);
+			}
 
 		}]);
 
