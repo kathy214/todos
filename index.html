@@ -35,7 +35,7 @@
             <label ng-dblclick="edit(todo.id)" ng-bind="todo.name "></label>
             <button class="destroy" ng-click="del(todo.id)"></button>
           </div>
-          <form>
+          <form ng-submit="update()">
             <input class="edit" ng-model="todo.name">
           </form>
         </li>

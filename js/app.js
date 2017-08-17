@@ -40,12 +40,14 @@
 				}
 			};
 
-			/*//4.修改任务
-            vm.edit=function(id){
-                var editId=-1;
-
-			}*/
-
+			//4.修改任务
+			vm.editId=-1;
+			vm.edit=function(id){
+                 vm.editId=id;
+			};
+			vm.update=function(id){
+				vm.editId=-1;
+			}
 
 		}]);
 
