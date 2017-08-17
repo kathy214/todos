@@ -47,7 +47,28 @@
 			};
 			vm.update=function(id){
 				vm.editId=-1;
-			}
+			};
+
+			//5.切换任务选中状态
+			vm.checkAll=false;
+			//5.1点击全选中，全不选中
+            vm.changeAll=function(){
+				for (var i = 0; i < todoList.length; i++) {
+					todoList[i].isCompleted=vm.checkAll;
+				}
+			};
+			//5.2全选中，上面按钮选中，一个不选中就不选中
+			vm.changeOne=function(){
+				for (var i = 0; i < todoList.length; i++) {
+					//有一个没完成，就不选中
+					if(todoList[i].isCompleted==false){
+						vm.checkAll=false;
+					}else{
+						vm.checkAll=true;
+					}
+
+				}
+			};
 
 		}]);
 

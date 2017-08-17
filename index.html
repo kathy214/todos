@@ -31,7 +31,7 @@
         <li ng-class="{ completed: todo.isCompleted,editing:editId===todo.id}" ng-repeat="todo in todoList track by todo.id">
           <div class="view">
             <!-- ng-model 用来控制当前是否被选中 -->
-            <input class="toggle" type="checkbox" ng-model="todo.isCompleted">
+            <input class="toggle" type="checkbox" ng-change="changeOne()" ng-model="todo.isCompleted">
             <label ng-dblclick="edit(todo.id)" ng-bind="todo.name "></label>
             <button class="destroy" ng-click="del(todo.id)"></button>
           </div>
