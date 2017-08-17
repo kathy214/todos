@@ -81,8 +81,7 @@
 					}
 				}
 				return false;
-			}
-
+			};
 			//6.2清除任务文字（新建临时数组，存放未完成数据）
 			vm.clearComplated=function(){
 				var tempList=[];
@@ -96,7 +95,18 @@
 				todoList.length=0;
 				//重新赋值
 				[].push.apply(todoList,tempList);
-			}
+			};
+
+			//7.显示未完成任务数
+			vm.unCompletedCount=function(){
+				var count=0;
+				for (var i = 0; i < todoList.length; i++) {
+					if(!todoList[i].isCompleted){
+						count++;
+					}
+				}
+				return count;
+			};
 
 		}]);
 
