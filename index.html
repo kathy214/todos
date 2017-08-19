@@ -32,7 +32,7 @@
           <div class="view">
             <!-- ng-model 用来控制当前是否被选中 -->
             <input class="toggle" type="checkbox" ng-change="changeOne()" ng-model="todo.isCompleted">
-            <label ng-dblclick="edit(todo.id)" ng-bind="todo.name "></label>
+            <label ng-dblclick="edit(todo.id,todo.isCompleted)" ng-bind="todo.name "></label>
             <button class="destroy" ng-click="del(todo.id)"></button>
           </div>
           <form ng-submit="update()">
@@ -68,7 +68,8 @@
   </footer>
 
   <script src="./node_modules/angular/angular.js"></script>
-  <script src="js/app.js"></script>
+ <!-- <script src="js/app.js"></script>-->
+  <script src="js/app-service.js"></script>
 </body>
 
 </html>

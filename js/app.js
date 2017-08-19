@@ -42,8 +42,10 @@
 
 			//4.修改任务
 			vm.editId=-1;
-			vm.edit=function(id){
-                 vm.editId=id;
+			vm.edit=function(id,isCompleted){
+				if(!isCompleted){
+					vm.editId=id;
+				}
 			};
 			vm.update=function(id){
 				vm.editId=-1;
@@ -123,7 +125,7 @@
 					case "/completed":
 						vm.state=true;
 						break;
-				}
+				};
 			});
 
 		}]);
